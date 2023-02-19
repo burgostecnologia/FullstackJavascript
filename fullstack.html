@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="keyword" content="COMANDOS, HTML, CSS, JAVASCRIPT" />
+    <meta name="author" content="Roberto Burgos (BURGOS TECNOLOGIA)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+  
+    <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <label>Digite o CEP</label><br />
+    <input type="text" value="21321052" id="cep" />
+    <input
+      type="button"
+      onclick="callApiCep(document.getElementById('cep').value)"
+      value="Buscar Endereço"
+    /><br />
+    <div id="bairro"></div>
+
+    <h1>Teste</h1>
+    <div id="oi"></div>
+    <div id="oi2"></div>
+    <div id="oi3"></div>
+    <div id="oi4"></div>
+    <div id="oi5">Mudança de cor a cada 1 segundo</div>
+    <div id="oi6"></div>
+    <div id="oi7"></div>
+
+    <div>
+      <!-- 
+      ===========================================
+      =======EVENTOS USADOS COM FREQUENCIA =======
+      ===========================================
+      -->
+      <button onclick="eventClick()">Clique aqui</button><br />
+      <!-- 
+      onClick     -> Disparado quando recebe clique
+      ondblClick  -> Disparado quando recebe duplo clique
+      onmouseover -> Disparado quando o mouse está sobre.
+      onmouseout  -> Disparado quando o mouse é movido para fora do elemento.
+      onmousemove -> Disparado quando o mouse é movido no elemento.
+      onmousedown -> Disparado quando o clique do botão foi pressionado.
+      onmouseup   -> Disparado quando o clique do botão é liberado
+      onfocus     -> Disparado quando o elemento recebe o foco. Válido para input,
+      onchange    -> Disparado quando existe uma mudança no conteudo. "Ao mudar".
+      onblur      -> Disparado quando o elemento perde o foco.
+      onkeydown   -> Disparado quando uma tecla é pressionada.
+      onkeypress  -> Disparado quando uma tecla é pressionada e solta.
+      onkeyup     -> Disparado quando uma tecla é solta sobre um elemento.
+      onload      -> Disparado quando a página terminou de ser carregada. Body.
+      onresize    -> Disparado quando há um redimencionamento da janela.
+  
+      -->
+      <script>
+        document.write("interno");
+      </script>
+    </div>
+    <script>
+      // let a = window.prompt('Oiii');
+      document.getElementById("oi").innerHTML = "<b>Oi meu amigo</b>";
+      document.write("popopo");
+    </script>
+    <script type="text/javascript" src="./script/fullstack.js"></script>
+  </body>
+</html>
