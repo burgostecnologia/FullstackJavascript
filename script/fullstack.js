@@ -204,9 +204,9 @@ document.write("<br><BR><B>LISTA ORDENADA REVERSE:</B> " + lista.reverse()); // 
 
  // SPREAD OPERATOS (espalha array)
 
- const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
-let arr2;
-arr2 = [...arr1];  
+ const arra1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arra2;
+arra2 = [...arra1];  
 //console.log(arr2);  //[ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ]
 
 //===========================//
@@ -262,11 +262,11 @@ const HIGH_TEMPERATURES2 = {
   console.log(lowToday2 + "-" + highToday2);
 
 // DESCONSTRUINDO ARRAY
-    let a = 8, b = 6;
+    let aa = 8, d = 6;
     // Only change code below this line
-    console.log("a:" + a + ' B: ' + b); //a:8 B: 6
-    [a,b] = [b,a];
-    console.log("a:" + a + ' B: ' + b); //a:6 B: 8
+    console.log("a:" + aa + ' d: ' + d); //a:8 d: 6
+    [aa,b] = [b,aa];
+    console.log("aa:" + aa + ' d: ' + d); //a:6 d: 8
 
     const [arr1,arr2] = [1,2,3];
     console.log("arr1:" + arr1); //arr1:1
@@ -491,3 +491,20 @@ function callApiCep(cep){
         document.getElementById('bairro').innerHTML = retApi.bairro;   
     }
 }
+
+
+//================================================================//
+//          REGEX                                                 //
+//================================================================//
+
+let text = "aasabdasbdbaabdbbBooob11111Bppasdj";
+let arrRegex = /[a-z]/ig;
+let arrText = text.match(arrRegex);
+let cont = 0;
+console.log("regex"); 
+for(let index=0;index <= 100; index++){
+    /1/i.test(arrText[index]) ? cont++:   
+    console.log(arrText[index]); 
+}
+console.log("qtd contador:" + cont);
+
