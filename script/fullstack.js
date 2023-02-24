@@ -497,6 +497,93 @@ function callApiCep(cep){
 //          REGEX                                                 //
 //================================================================//
 
+//metodo test
+let test1Str = "freeCodeCamp";
+let test1Regex = /Code/;
+test1Regex.test(test1Str);  // retorna true ou false
+
+//busca literal
+let test2Str = "Hello, my name is Kevin.";
+let test2Regex = /Kevin/;
+test2Regex.test(test2Str); //true
+
+//busca literal com ou "|"
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/; 
+let result3 = petRegex.test(petString); // true  
+
+//busca ignorando o CaseSensitive flag i 
+let test4Str = "Hello, my name is KEVIN.";
+let test4Regex = /kevin/;
+test4Regex.test(test4Str); //false
+let test5Regex = /kevin/i;
+test5Regex.test(test5Str); //true
+
+//EXTRAIR BUSCA
+let ourStr = "Regular expressions";
+let ourRegex = /expressions/;
+let ret6 = ourStr.match(ourRegex); // ["expressions"]
+
+//EXTRAIR mais do que o primeiro flag g
+let test7Str = "Repeat, Repeat, Repeat";
+let ourRegex7 = /Repeat/g;
+test7Str.match(ourRegex7);  //["Repeat", "Repeat", "Repeat"]
+
+//CARACTER CORING "." RETORNA QQ COISA (CADA PONTO SIGNIFICA UM CARACTER)
+let humStr = "I'll hum a song";
+let hugStr = "Bear hug";
+let huRegex = /hu./;
+huRegex.test(humStr);  //TRUE
+huRegex.test(hugStr);  //TRUE
+
+//INTERVALOS DE CARACTERES especificados 
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/;
+bagStr.match(bgRegex); //["big"]
+bigStr.match(bgRegex); //["bag"]
+bugStr.match(bgRegex); //["bug"]
+bogStr.match(bgRegex); // null
+
+//INTERVALOS DE CARACTERES com intervalo entre caracateres
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex2 = /[a-e]at/;
+catStr.match(bgRegex2); //["cat"]
+batStr.match(bgRegex2); // ["bat"]
+matStr.match(bgRegex2); // null
+
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+jennyStr.match(myRegex); // ["Jenny8675309"]
+
+//regex "diferente" ^
+let quoteSample = "3 blind mice.";
+let myRegex2 = /[^0-9aeiou]/gi;  
+let result = quoteSample.match(myRegex2); // corresponda a todos os caracteres que não sejam um número ou uma vogal. 
+
+//PEGA O MESMO CARACTER MAS SO EM SEQUENCIA , TEM Q COLOCAR A FLAG g PARA TRAZER TODOS
+let difficultSpelling = "Mississippi";
+let myRegex3 = /s+/g; // Change this line
+let result4 = difficultSpelling.match(myRegex3);
+console.log(result4)
+
+//PEGA ATE ONDE ENCONTRAR
+let soccerWord = "gooooooooal!";
+let gPhrase = "gut feeling";
+let oPhrase = "over the moon";
+let goRegex = /go*/;
+soccerWord.match(goRegex); // ["goooooooo"]
+gPhrase.match(goRegex); //["g"]
+oPhrase.match(goRegex); //null
+
+// LAZY MATCHING (PEGA A STRING QUE ENCONTRAR PRIMEIRO)
+
+
+//teste usanbdo regex
 let text = "aasabdasbdbaabdbbBooob11111Bppasdj";
 let arrRegex = /[a-z]/ig;
 let arrText = text.match(arrRegex);
