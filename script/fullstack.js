@@ -560,7 +560,7 @@ let jennyStr = "Jenny8675309";
 let myRegex = /[a-z0-9]/ig;
 jennyStr.match(myRegex); // ["Jenny8675309"]
 
-//regex "diferente" ^
+//regex "diferente" negativa  ^ dentro do colchete funciona como negativa
 let quoteSample = "3 blind mice.";
 let myRegex2 = /[^0-9aeiou]/gi;  
 let result = quoteSample.match(myRegex2); // corresponda a todos os caracteres que não sejam um número ou uma vogal. 
@@ -571,7 +571,7 @@ let myRegex3 = /s+/g; // Change this line
 let result4 = difficultSpelling.match(myRegex3);
 console.log(result4)
 
-//PEGA ATE ONDE ENCONTRAR
+//PEGA ATE ONDE ENCONTRAR *
 let soccerWord = "gooooooooal!";
 let gPhrase = "gut feeling";
 let oPhrase = "over the moon";
@@ -580,7 +580,40 @@ soccerWord.match(goRegex); // ["goooooooo"]
 gPhrase.match(goRegex); //["g"]
 oPhrase.match(goRegex); //null
 
-// LAZY MATCHING (PEGA A STRING QUE ENCONTRAR PRIMEIRO)
+// LAZY MATCHING (PEGA A STRING QUE ENCONTRAR PRIMEIRO e para por ai "?" antes do "*" )  
+let text7 = "<h1>Winter is coming</h1>";
+let myRegex7 = /<.*?>/; 
+let result7 = text.match(myRegex7);
+console.log(result7)  // [ '<h1>',  index: 0,  input: '<h1>Winter is coming</h1>',  groups: undefined ]
+
+//regex pesquisa se string ta no inicio  ^ fora de colchete dentro somente das  / / 
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+let result8 = calRegex.test(rickyAndCal);
+console.log(result8)  //true
+
+//regex pesquisa se string ta no final  $ fora de colchete dentro somente das  / / 
+let rickyAndCal9 = "Cal and Ricky both like racing.";
+let calRegex9 = /racing$/; // Change this line
+let result9 = calRegex.test(rickyAndCal9);
+console.log(result9)  //true
+
+//PEGAR TODAS AS LETRAS E NUMEROS E O UNDERSCORE COM A CLASS \w
+//Obs \w pega [A-Za-z0-9_] e o \W pega ao contrario
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers); //true
+shortHand.test(numbers); //true
+longHand.test(varNames); //true
+shortHand.test(varNames); //true
+
+//PEGAR TODOS NUMEROS COM A CLASS \d
+//Obs \d pega [0-9] e o \D pega ao contrario
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; // 
+let result11 = movieName.match(numRegex).length;
 
 
 //teste usanbdo regex
