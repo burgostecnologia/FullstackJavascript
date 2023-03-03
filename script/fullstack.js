@@ -1,4 +1,5 @@
 //teste git graph
+
 // FUNÇÃO RECURSIVA
 function countup(n) {
     if (n < 1) {
@@ -517,7 +518,7 @@ let test4Str = "Hello, my name is KEVIN.";
 let test4Regex = /kevin/;
 test4Regex.test(test4Str); //false
 let test5Regex = /kevin/i;
-test5Regex.test(test5Str); //true
+test5Regex.test(test4Str); //true
 
 //EXTRAIR BUSCA
 let ourStr = "Regular expressions";
@@ -583,7 +584,7 @@ oPhrase.match(goRegex); //null
 // LAZY MATCHING (PEGA A STRING QUE ENCONTRAR PRIMEIRO e para por ai "?" antes do "*" )  
 let text7 = "<h1>Winter is coming</h1>";
 let myRegex7 = /<.*?>/; 
-let result7 = text.match(myRegex7);
+let result7 = text7.match(myRegex7);
 console.log(result7)  // [ '<h1>',  index: 0,  input: '<h1>Winter is coming</h1>',  groups: undefined ]
 
 //regex pesquisa se string ta no inicio  ^ fora de colchete dentro somente das  / / 
@@ -615,16 +616,60 @@ let movieName = "2001: A Space Odyssey";
 let numRegex = /\d/g; // 
 let result11 = movieName.match(numRegex).length;
 
+//PEGAR TODOS espacos em branco
+let movieName2 = "2001: A Space Odyssey";
+let numRegex2 = /\s/g; 
+let result1122 = movieName2.match(numRegex2).length;
+console.log(result1122);
 
-//teste usanbdo regex
-let text = "aasabdasbdbaabdbbBooob11111Bppasdj";
-let arrRegex = /[a-z]/ig;
-let arrText = text.match(arrRegex);
-let cont = 0;
-console.log("regex"); 
-for(let index=0;index <= 100; index++){
-    /1/i.test(arrText[index]) ? cont++:   
-    console.log(arrText[index]); 
+//PEGAR TODOS DIFERENTE DE espacos em branco
+let movieName21 = "2001: A Space Odyssey";
+let numRegex21 = /\S/g; 
+let result11221 = movieName21.match(numRegex21).length;
+console.log(result11221);
+
+//PEGAR intervalo de repeticoes de um caracter ou numero
+let ohStr = "Ohhh no";
+let ohRegex = /oh{3,6} no/gi; // Change this line
+let result111 = ohRegex.test(ohStr);
+
+//pode ter um naõ o caracater
+let favWord = "favorite";
+let favRegex = /favou?rite/; // Change this line
+let resulta = favRegex.test(favWord);
+console.log(resulta)
+
+
+//AIND ESTA COM ERRO
+//desafio achar qual caracter se repete mais levando em consideração Maiuscula e minuscula
+let textx = "aasadasdbaabdbbBooob11111Bppasdj";
+let maiorOcorrencia = 0;
+let letraMaiorOcorrencia;
+for(let indexx=0;indexx < textx.length; indexx++){    
+    let arrRegexx = new RegExp(textx[indexx],'ig');
+    
+    let repetiçõesLetra = textx.match(arrRegexx).length;            
+    //console.log(repetiçõesLetra)
+    if (repetiçõesLetra > maiorOcorrencia) {
+
+        letraMaiorOcorrencia = textx[indexx];
+        maiorOcorrencia = repetiçõesLetra;
+        console.log("repetiçõesLetra:" + repetiçõesLetra);
+        console.log("maiorOcorrencia:" + maiorOcorrencia);
+        console.log("letraMaiorOcorrencia:" + letraMaiorOcorrencia)
+    }    
 }
-console.log("qtd contador:" + cont);
+console.log("letraMaiorOcorrencia: " + letraMaiorOcorrencia);
+
+
+/////////// DEBUG
+
+///VER TIPO DE VARIAVEL
+let seven = 7;
+let three = "3";
+console.log(seven + three);
+// Only change code below this line
+console.log(typeof(seven));
+console.log(typeof(three));
+
 
