@@ -673,3 +673,168 @@ console.log(typeof(seven));
 console.log(typeof(three));
 
 
+//// rocket seat
+
+//////////////////////////////
+// Nullish Coalescing Opeator
+
+//exemplo sem Nullish Coalescing Opeator para tratar conteudo
+// mas se colocar 0 ele tb não considera valido
+// [],0,null, undefined,''  são considerados falsy
+const idade1 = null;
+console.log("Sua idade é:" + (idade1 || "conteudo nao aceito"));
+
+//se precisar usar o 0 da pra usar o Nullish Coalescing Opeator
+// null e undefined são falsy
+const idade2 = 0;
+console.log("Sua idade é:" + (idade2 ?? "conteudo nao aceito"));
+
+//////////////////////////////
+// Objetos
+
+const user = {
+    nome: "Roberto",
+    idade: 41,
+    nickname: "Juca",
+    endereco: {
+        rua: "Floripa",
+        numero: 71
+    }
+}
+
+//verificar se existe uma informacao no objeto IN
+let existeInfo = ('nome' in user);
+console.log(existeInfo);
+
+//retornar chaves do objeto
+let chaves = Object.keys(user);
+console.log(chaves);
+
+//retornar conteudo objeto
+let valores = Object.values(user);
+console.log(valores);
+document.getElementById("appl").innerHTML = JSON.stringify(valores); 
+
+//retornar conteudo objeto
+let objetoToArray = Object.entries(user);
+console.log(objetoToArray);
+
+
+//////////////////////////////
+// Destruturação
+
+// sem Destruturação
+//const endereco = user.endereco;
+//console.log(endereco);
+
+// com Destruturação 1 campo
+//const {endereco} = user
+//console.log(endereco);
+
+// com Destruturação + de 1 campo
+//const {endereco, idade} = user
+//console.log({endereco, idade});
+
+// com Destruturação + de 1 campo renomeando campo
+//const {endereco, idade: age} = user
+//console.log({endereco, age});
+
+// com Destruturação + de 1 campo e trazer possiveis campos inexistentes e trazendo um valor default se nao existir no objetc
+//const {endereco, idade: age, nickname = "Burgos"} = user
+//console.log({endereco, age, nickname});
+
+// com Destruturação na função
+    // sem desDestruturação
+    // function idade(usuario) {
+    //     return usuario.idade;
+    // }
+    // console.log(idade(user));
+
+    // com desDestruturação
+    function idades({idade}) {
+        return idade;
+    }
+    console.log(idades(user));
+
+
+//////////////////////////////
+// rest operator em objetos - para pegar o restante do que foi destruturado
+
+const {endereco,nickname, ...rest} = user
+console.log(rest);
+
+//////////////////////////////
+// rest operator em arrays - para pegar o restante do que foi destruturado
+
+const array1 = [1,2,3,4,5,6,7,8,9];
+//const first = array1[0]
+const [first,second, ...restante] = array1
+console.log(first + "-" + second + "-" + restante);
+const [firstx,, ...restantex] = array1
+console.log(firstx + "-" + restantex);
+
+
+
+//////////////////////////////
+// Short Sintax - para nome de variave do ojeto igua a variavel do valor
+
+const name3 = "Roberto";
+const idade3 = 41;
+
+//long sintax
+// const obj3 = {
+//     nome3: nome3,
+//     idada3: idade3,
+// }
+
+//short sintax
+const obj3 = {
+    name3,
+    idade3,
+}
+
+
+//////////////////////////////
+// Optional Chaining para tratar se nao achar campo no json
+
+const user2 = {
+    nome: "Roberto",
+    idade: 41,
+    nickname: "Juca",
+    endereco: {
+        rua: "Floripa",
+        numero: 71,
+        // cep: {
+        //     code: 21321054,
+        //     city: "RJ",
+        // }
+    }
+}
+
+console.log(user2.endereco?.cep?.code ?? 'Não encontrado')
+
+//////////////////////////////
+// Metodos de array
+
+const array4 = [1,2,3,4,5]
+
+//forma 1
+for (const i of array4){
+    console.log(i);
+}
+
+//forma 2  - nao ébom para retornar valor
+array4.forEach(item => {
+    console.log(item);
+})
+
+//forma 3 com o map consegue fazer um retorno , mas tem q manter a mesma qtd de itens
+const novoArray = array4.map(item1 => {
+ return item1 * 2
+})
+console.log(novoArray);
+
+
+//https://www.youtube.com/watch?v=37SwqREHRGI&t=3756s  48 min
+
+
