@@ -1,3 +1,11 @@
+##CONFIGURACAO DO GIT 1 // ver a lista de config
+$ git config --global --list
+##CONFIGURACAO DO GIT 2 // colocar o usuario para identificar os commits
+$ git config --global user.name "Roberto Burgos"
+##CONFIGURACAO DO GIT 3 // colocar o email do usuario para identificar os commits
+$ git config --global user.email roberto@gmail.com
+
+
 #PASSO 1 - SOMENTE Quando for criar um projeto novo na maquina local
 
 Entrar no explorador de arquivos e acessar a pasta criada do projeto e abrir o git bash nesta pasta
@@ -32,12 +40,11 @@ $ git status
 * Informa todos os arquivos que estão na área de Staging aguardando o Commit (Salvar Local)
 
 Somente se precisar tirar arquivos indevidos do Staging 
-
 ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)
 $ git restore --staged .
 
 
-#PASSO 4 - Salvar a alteração no git (Local)
+#PASSO 4 - Salvar a alteração no git (Local) commit
 
 ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)
 $ git commit -m "Primeiro Commit"
@@ -48,6 +55,35 @@ ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)
 $ git status
 
 * Os arquivos vão sumir do Staging
+
+
+#PASSO 4.1 - RASTREAR COMMITS HISTORICO autor - data - texto alteracao e id completo
+ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)
+$ git log 
+*** para sair digite a ltra Q e enter no prompt :
+
+#PASSO 4.2 - RASTREAR COMMITS HISTORICO enxuto - parte do Id  e texto alteracao
+ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)
+$ git log --oneline
+
+#PASSO 4.3.1 (CHECKOUT)- Reverter commit - dar um checkout voltando para um Id de commit anterior
+# dando o checkout para a branche principal da para voltar para a ultima posição sem perder o historico
+$ git log --oneline
+$ git checkout aaf645b
+*exemplo de uma branch do passado aaf645b
+$ git checkout master
+*voltando para a principal
+
+#PASSO 4.3.2 (REVERT)- Reverter todas alterações de um id de commit especifico e vai criar um novo commit, vai alterar historico(mantem no historico e cria uma nova linha de historico)
+$ git log --oneline
+$ git revert aaf645b
+*exemplo de uma branch do passado aaf645b
+
+#PASSO 4.3.3 (RESET - perigoso o uso)- Reverter todas alterações de um id de commit especifico e perde todas as alteracoes posteriores e perde o historico tb
+$ git checkout aaf645b
+$ git reset aaf645b
+*exemplo de uma branch do passado aaf645b
+
 
 #PASSO 5 - Preparar conexão com o repositório no Github ou Bitbucket (nuvem) - Somente na primeira vez
 
@@ -74,6 +110,16 @@ $ git checkout -b feature-nova-msg
 * Caso anteriormente ja tenha criado uma nova branch para mudar de uma para não precisa do "-b"
 
 ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (feature-nova-msg)
+$ git checkout master
+
+#para deletar uma Branch
+ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (feature-nova-msg)
+$ git branch -D develop
+
+#para listar Branchs
+$ git branch 
+
+
 
 #PASSOS COMPLEMENTARES 2 - remover um remote
 
@@ -85,24 +131,22 @@ $ git remote remove origin
 
 #PASSOS COMPLEMENTARES 3 - SE PRECISAR FAZER MERGE (faz local a junção)
 
-1 - Mudar a branch da alteração para a Master
+1 - Mudar a branch da alteração para a Master (branch de destino)
 
 ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (feature-nova-msg)
 $ git checkout master
 
 2 - comando de junção 
 
-ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)
+ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)  #fusao das branchs
 $ git merge feature-nova-msg
 
-3 - push
-
-ROBERTO@MAQUINA MINGW64 /c/BURGOS/starter-java-spring-boot-vue (master)
-$ git push origin master
+#PASSOS COMPLEMENTARES 3.1 - resolucao de conclitos em merge
+tem que fazer manualmente
 
 
 #PASSOS COMPLEMENTARES 4 - Clonar projetos e atualizar projetos na maquina com o que esta mais atualizado no repositorio(bitbucket ou github)
-
+ 
 1 - criar uma pasta e clonar
 
 ROBERTO@MAQUINA MINGW64 /c/BURGOS/projeto-copiado (master)
@@ -133,4 +177,4 @@ $ git pull
 
 3 - Se nao quiser colocar msg e clicar no ->  Close pull request
 
-->> FIM
+->>>> FIM
