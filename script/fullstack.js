@@ -498,6 +498,40 @@ function callApiCep(cep){
 //          REGEX                                                 //
 //================================================================//
 
+let word = "titanic"
+let myRegexp = /t[a-z]*i/g 
+let myresult = word.match(myRegexp)
+console.log(myresult)
+
+//VALIDA USUARIO
+// 1- SE TIVER NUMEROS, SOMENTE PODE ESTAR NO FINAL
+// 2- LETRAS PODEM ESTAR EM MAIUSCULO E MINUSCULO
+// 3- TER AO MENOS 2 CARACTERES, SE FOREM 2 NÃO PODE TER NUMEROS
+let username = 'RobertoBurgos'
+//let username = 'RobertoBurgos23'
+//let username = 'Ro'
+//let username = 'R1'
+//let usercheck = /^[A-Za-z]{2,}\d*$/
+let usercheck = /^[A-Za-z]{2,}\d*$/ig
+console.log(usercheck.test(username))
+console.log(username.match(usercheck))
+
+//range {} .
+let ohhStr = "Ohh no"
+let ohCheck = /Oh{1,} no/gi 
+console.log(ohCheck.test(ohhStr))
+console.log(ohhStr.match(ohCheck))
+
+//erro de digitacao
+let escrita = "Problemas"
+let escritaCheck = /Problema?s/g
+console.log(escritaCheck.test(escrita));
+console.log(escrita.match(escritaCheck));
+
+
+
+
+
 //metodo test
 let test1Str = "freeCodeCamp";
 let test1Regex = /Code/;
@@ -538,15 +572,16 @@ huRegex.test(humStr);  //TRUE
 huRegex.test(hugStr);  //TRUE
 
 //INTERVALOS DE CARACTERES especificados 
-let bigStr = "big";
 let bagStr = "bag";
-let bugStr = "bug";
+let bigStr = "big";
 let bogStr = "bog";
-let bgRegex = /b[aiu]g/;
-bagStr.match(bgRegex); //["big"]
-bigStr.match(bgRegex); //["bag"]
-bugStr.match(bgRegex); //["bug"]
-bogStr.match(bgRegex); // null
+let bugStr = "bug";
+
+let bgRegex = /b[aiu]g/g;
+console.log(bagStr.match(bgRegex)); //["big"]
+console.log(bigStr.match(bgRegex)); //["bag"]
+console.log(bogStr.match(bgRegex)); // null
+console.log(bugStr.match(bgRegex)); //["bug"]
 
 //INTERVALOS DE CARACTERES com intervalo entre caracateres
 let catStr = "cat";
@@ -671,6 +706,16 @@ console.log(seven + three);
 // Only change code below this line
 console.log(typeof(seven));
 console.log(typeof(three));
+
+
+// ARRAY INDEXOF
+let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
+
+fruits.indexOf('dates');  
+fruits.indexOf('oranges');
+fruits.indexOf('pears');
+//indexOf('dates')retorna -1, indexOf('oranges')retorna 2e indexOf('pears')retorna 1(o primeiro índice no qual cada elemento existe).
+
 
 
 //// rocket seat
