@@ -97,6 +97,116 @@ for (let index = 0; index < array.length; index++) {
 //          ARRAYS           //
 //===========================//
 
+//8 METODOS DO ARRAY ITERAR
+// FOREACH - MAP - FILTER - REDUCE - SOME - EVERY - FIND
+
+// FOREACH - passa em todos os itens pegando valor e chave 
+let arraya1 = ["a","b","c"]
+arraya1.forEach(function(item,index){
+    console.log(index + ":" + item )
+})
+arraya1.forEach((item,index) => console.log(index + ":" + item)) 
+
+//MAP - LE O CONTEUDO , FAZ ALGUMA COISA E ATUALIZA NO MESMO LOCAL
+const arrayb1 = [1,2,3]
+let soma1 =  arrayb1.map(function(item){
+    if (item % 2 == 0){
+        return item + 1
+    }else{
+        return item
+    }
+    
+})
+console.log(soma1)
+
+//FILTER - SE ATENDER A CONDICAO(TRUE) MANTEM NO ARRAY SENAO RETIRA
+const meusItens = [1,2,3,4,5,6]
+const pares = meusItens.filter(function(item){
+        return item % 2 == 0
+})
+console.log(pares)
+
+//REDUCE  - primeiro argumento é o resultado do que é feito para cada iteração, esse resultado
+//          é disponibilizado para próxima iteração
+//          o valor colocado depois da função é o valor inicial do result, se não colocar nada
+//          o result inicial fica sendo o primeiro valor do array
+const arrayNum = [3,4,5]
+
+const sum = arrayNum.reduce(function(result,item){
+    return result + item    
+},2)
+console.log(sum)
+
+const mult = arrayNum.reduce(function(result,item){
+    return result * item    
+})
+console.log(mult)
+
+const subtr  = arrayNum.reduce((result,item) => { return result - item },50)
+console.log(subtr)
+
+// SOME - valida e retorna true se encontra ao menos uma condição
+
+ const hasNegativeNumbers = arrayNum.some(function(item){
+     return item < 0
+ })
+console.log(hasNegativeNumbers)
+
+const hasNegativeNumbers2 = [0,-11,2].some((item) =>  item < 0)
+console.log(hasNegativeNumbers2)
+
+// EVERY - valida e retorna true se encontra TODOS em uma condição
+let arrayNum2 = [1,2,5,4]
+const hasPositiveNumbers = arrayNum2.every(function(item){
+    return item >= 0
+})
+console.log(hasPositiveNumbers)
+
+// FIND  -  busca o item especifico com a condição, se encontrar retorna o conteudo do array
+//          se não encontrar retorna undefined
+const objeto1 = [{id:1, name: 'roberto'},{id:2, name: 'carol'},{id:3,name: 'gio'}]
+// const busca = objeto1.find(function(item){
+//     return item.name === 'roberto'
+// })
+const busca = objeto1.find((item) => item.name === 'roberto')
+console.log(busca)
+
+
+// FINDINDEX  -  busca o item especifico com a condição, se encontrar retorna o INDEX do array
+//          se não encontrar retorna -1
+const objeto2 = [{id:1, name: 'roberto'},{id:2, name: 'carol'},{id:3,name: 'gio'}]
+const busca2 = objeto1.findIndex(function(item){
+    return item.name === 'gio'
+})
+console.log(busca2)
+
+////////////////////////////////////////////////
+// FIM 8 METODOS DO ARRAY
+////////////////////////////////////////////////
+
+// DESAFIO COM FILTER E MAP
+// FAZER UM ARRAY COM O QUADRADO DE NUMEROS SOMENTE INTEIROS POSITIVOS DE UM OUTRO ARRAY
+const arrayDesafio = [2,4,4.5,-9,2,-1]
+const desafio = arrayDesafio.filter(item => Number.isInteger(item) && item >0).map(item => item * item)
+console.log(desafio)
+// FIM DESAFIO COM FILTER E MAP
+
+
+/////////////////////////////////////
+/// REST OPERATOR ...  (rest é os ... usados no lugar do argumento)
+/// SUBSTITUI OS ARGUMENTOS POR REST OPERATOR
+function exec(a,b,c) {
+    const argArray = [a,b,c]
+    return argArray.reduce((result,item) => result + item)
+}
+console.log(exec(1,2,4));
+/// 
+function exec2(...argArray2) {    
+    return argArray2.reduce((result,item) => result + item)
+}
+console.log(exec2(1,2,4));
+
+
 const lista = [1,2,3,4]; //forma 1 de definir
 const lista2 = ["AA","BB","CC","DD"]; //forma 1 de definir
 const lista3 = new Array(1,2,3,4,5); //forma 2 de definir
@@ -203,12 +313,27 @@ document.write("<br><BR><B>LISTA ORDENADA REVERSE:</B> " + lista.reverse()); // 
  }
 
 
- // SPREAD OPERATOS (espalha array)
+ // SPREAD OPERATOS (espalha array) COPIA O CONTEUDO DE UM ARRAY PARA OUTRO
+ // SE FIZER SIMPLESMENTE UMA ATRIBUIÇÃO DE UM ARRAY = OUTRARRAY , ELE VIRA UM CLONE
+ // OU SEJA SE UDAR O VALOR DO PRIMEIRO ARRAY O SEGUNDO TAMBEM É ALTERADO, NO CASO DO SPREAD
+ // ISSO NAO ACONTECE POR SER UM ARRAY DIFERENTE
 
- const arra1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+
+ //CLONANDO
+const arra1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
 let arra2;
-arra2 = [...arra1];  
-//console.log(arr2);  //[ 'JAN', 'FEB', 'MAR', 'APR', 'MAY' ]
+arra2 = arra1;  
+arra1[0]="TEST"
+console.log(arra1);
+console.log(arra2)
+//FAZENDO UM COPIA INDEPENDENTE COM SPREAD OPERATOR
+const arra3 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arra4;
+arra4 = [...arra3];  
+arra3[0]="TEST"
+console.log(arra3);
+console.log(arra4);
+
 
 //===========================//
 //          OBJETOS          //
